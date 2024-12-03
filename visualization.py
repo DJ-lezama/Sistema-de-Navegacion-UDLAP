@@ -9,12 +9,9 @@ class GraphVisualizerApp:
     def __init__(self, graph, places):
         self.graph = graph
         self.places = places
-        self.selected_path = []  # Store the current shortest path
+        self.selected_path = []  # Store the calculated shortest path
 
     def create_gui(self, root):
-        """
-        Create the GUI layout with a side panel and graph container.
-        """
         # Main layout: divide into left panel and graph container
         self.left_panel = tk.Frame(root, width=200, bg="lightgray")
         self.left_panel.pack(side=tk.LEFT, fill=tk.Y)
@@ -41,9 +38,6 @@ class GraphVisualizerApp:
         self.reset_button.pack(pady=10)
 
     def visualize_graph(self, highlight_path=None):
-        """
-        Visualize the graph using matplotlib and embed it in the Tkinter container.
-        """
         G = nx.Graph()
         for from_node, neighbors in self.graph.graph.items():
             for to_node, weight in neighbors.items():
