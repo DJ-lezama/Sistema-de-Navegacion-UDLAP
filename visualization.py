@@ -8,7 +8,7 @@ from data import places, distances
 class GraphVisualizer:
     def __init__(self, graph):
         self.graph = graph
-        self.selected_path = []  # To store the shortest path
+        self.selected_path = []  # Stores shortest path
 
     def visualize(self, highlight_path=None):
         G = nx.Graph()

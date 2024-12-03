@@ -10,7 +10,7 @@ class Graph:
 
     def add_edge(self, from_node, to_node, weight):
         self.graph[from_node][to_node] = weight
-        self.graph[to_node][from_node] = weight  # Undirected graph
+        self.graph[to_node][from_node] = weight
 
     def dijkstra(self, start, end):
         queue = []
