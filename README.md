@@ -1,4 +1,3 @@
-Aquí está el manual de usuario en formato listo para un archivo **README.md** para incluirlo en el repositorio:
 
 ---
 
