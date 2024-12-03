@@ -13,8 +13,10 @@ def main():
 
     # Create and launch the GUI
     root = tk.Tk()
+    root.geometry("1000x700")
     app = GraphVisualizerApp(udlap_graph, places)
     app.create_gui(root)
+    app.visualize_graph()
     root.mainloop()
 
 if __name__ == "__main__":
