@@ -1,7 +1,7 @@
-places = ["CE", "AU", "BI", "CS", "IA", "CN", "NE", "HA", "LB", "GB", "TD", "SL", "HU"]
+places = ["CE", "AU", "BI", "CS", "IA", "CN", "NE", "HA", "LB", "GB", "TD", "SL", "HU", "AG"]
 places_display_name = ["Centro Estudiantil", "Auditorio", "Biblioteca", "Ciencias Sociales", "Ingeniería", "Ciencias",
                        "Negocios", "Hacienda", "Laboratorio B-34", "Gimnasio de Pesas", "Templo del Dolor",
-                       "Ciencias de la Salud", "Humanidades"]
+                       "Ciencias de la Salud", "Humanidades", "Ágora"]
 
 distances = {
     ("CE", "AU"): 101.86,  # Centro Social a Auditorio
@@ -21,4 +21,6 @@ distances = {
     ("BI", "CN"): 78.41,   #Biblioteca a Ciencias
     ("SL", "TD"): 42.79,   #Ciencias de la Salud a Templo del Dolor
     ("GB", "TD"): 112.35,  #Gimnasio de Pesas a Templo del Dolor
+    ("AG", "HU"): 21.47,   #Ágora a Humanidades
+    ("HA", "AG"): 73.9,
 }
