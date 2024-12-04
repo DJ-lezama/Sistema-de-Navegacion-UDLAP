@@ -79,4 +79,4 @@ graph TD
     K --> M[Usuario Hace Clic en "Reiniciar"]
     M --> N[Restablecer Grafo a Estado Predeterminado]
     N --> E
-
+```
