@@ -63,29 +63,41 @@ Esto abrirá la interfaz gráfica del sistema.
 
 ```mermaid
 classDiagram
-    class Graph {
-        +graph : dict
-        +add_node(node: str)
-        +add_edge(from_node: str, to_node: str, weight: float)
-        +dijkstra(start: str, end: str) : tuple
-    }
-
     class GraphVisualizerApp {
-        -graph : Graph
-        -places : list
-        -selected_path : list
+        +Frame left_panel
+        +Frame graph_container
+        +ComboBox start_combo
+        +ComboBox end_combo
+        +Label result_label
+        +Button calculate_button
+        +Button reset_button
         +create_gui(root: Tk)
-        +visualize_graph(highlight_path: list)
+        +visualize_graph(highlight_path: list = None)
         +calculate_shortest_path()
         +reset_graph()
     }
 
-    class Data {
-        +places : list
-        +distances : dict
+    class Evaluation {
+        +evaluate_system(graph: Graph, test_cases: list): list
+        +display_evaluation_results(results: list)
     }
 
-    GraphVisualizerApp --> Graph : utiliza
-    GraphVisualizerApp --> Data : utiliza
+    class Graph {
+        +dict graph
+        +add_node(node: str)
+        +add_edge(from_node: str, to_node: str, weight: float)
+        +dijkstra(start: str, end: str): (list, float)
+    }
+
+    class Data {
+        +list places
+        +dict distances
+    }
+
+    GraphVisualizerApp --> Data : "Loads places and distances"
+    GraphVisualizerApp --> Graph : "Uses for shortest paths"
+    Graph --> Data : "Loads nodes and edges"
+    Evaluation --> Graph : "Validates paths"
+
 
 ```
