@@ -57,3 +57,26 @@ Esto abrirá la interfaz gráfica del sistema.
 - Las distancias entre los edificios están ponderadas según mediciones aproximadas obtenidas de Google Earth.
 
 ---
+
+## Diagram de clases UML
+
+
+```mermaid
+graph TD
+    A[Iniciar Aplicación] --> B[Inicializar Grafo]
+    B --> C[Cargar Lugares y Distancias]
+    C --> D[Construir Estructura del Grafo]
+    D --> E[Mostrar Interfaz Gráfica]
+    
+    E --> F[Usuario Selecciona Punto de Inicio]
+    E --> G[Usuario Selecciona Punto de Destino]
+    F --> H{¿Ambos Puntos Seleccionados?}
+    G --> H
+    H -->|Sí| I[Calcular Ruta Más Corta]
+    H -->|No| J[Solicitar al Usuario Seleccionar Ambos Puntos]
+    I --> K[Mostrar Ruta Más Corta en el Grafo]
+    I --> L[Mostrar Distancia en la Interfaz]
+    K --> M[Usuario Hace Clic en "Reiniciar"]
+    M --> N[Restablecer Grafo a Estado Predeterminado]
+    N --> E
+
