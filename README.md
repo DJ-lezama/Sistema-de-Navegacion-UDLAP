@@ -76,7 +76,7 @@ graph TD
     H -->|No| J[Solicitar al Usuario Seleccionar Ambos Puntos]
     I --> K[Mostrar Ruta Más Corta en el Grafo]
     I --> L[Mostrar Distancia en la Interfaz]
-    K --> M[Usuario Hace Clic en "Reiniciar"]
+    K --> M[Usuario Hace Clic en Reiniciar]
     M --> N[Restablecer Grafo a Estado Predeterminado]
     N --> E
 ```
