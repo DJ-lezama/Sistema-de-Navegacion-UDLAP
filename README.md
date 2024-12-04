@@ -62,21 +62,30 @@ Esto abrirá la interfaz gráfica del sistema.
 
 
 ```mermaid
-graph TD
-    A[Iniciar Aplicación] --> B[Inicializar Grafo]
-    B --> C[Cargar Lugares y Distancias]
-    C --> D[Construir Estructura del Grafo]
-    D --> E[Mostrar Interfaz Gráfica]
-    
-    E --> F[Usuario Selecciona Punto de Inicio]
-    E --> G[Usuario Selecciona Punto de Destino]
-    F --> H{¿Ambos Puntos Seleccionados?}
-    G --> H
-    H -->|Sí| I[Calcular Ruta Más Corta]
-    H -->|No| J[Solicitar al Usuario Seleccionar Ambos Puntos]
-    I --> K[Mostrar Ruta Más Corta en el Grafo]
-    I --> L[Mostrar Distancia en la Interfaz]
-    K --> M[Usuario Hace Clic en Reiniciar]
-    M --> N[Restablecer Grafo a Estado Predeterminado]
-    N --> E
+classDiagram
+    class Graph {
+        +graph : dict
+        +add_node(node: str)
+        +add_edge(from_node: str, to_node: str, weight: float)
+        +dijkstra(start: str, end: str) : tuple
+    }
+
+    class GraphVisualizerApp {
+        -graph : Graph
+        -places : list
+        -selected_path : list
+        +create_gui(root: Tk)
+        +visualize_graph(highlight_path: list)
+        +calculate_shortest_path()
+        +reset_graph()
+    }
+
+    class Data {
+        +places : list
+        +distances : dict
+    }
+
+    GraphVisualizerApp --> Graph : utiliza
+    GraphVisualizerApp --> Data : utiliza
+
 ```
